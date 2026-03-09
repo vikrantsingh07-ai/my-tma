@@ -180,11 +180,14 @@ You've validated the hypothesis. Now you build.`,
 // ============================================================
 // MOCK USER STATE — In real app this comes from Telegram SDK
 // ============================================================
+import WebApp from '@twa-dev/sdk'
+
+const tgUser = WebApp.initDataUnsafe?.user
 const MOCK_USER = {
-  id: 123456789,
-  name: "Alex",
+  id: tgUser?.id || 123456789,
+  name: tgUser?.first_name || "Friend",
   avatar: "🧑‍💻",
-};
+}
 
 // ============================================================
 // STYLES — Telegram-native feel with warm editorial aesthetic
